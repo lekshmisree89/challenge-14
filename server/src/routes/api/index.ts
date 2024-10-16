@@ -1,10 +1,10 @@
 import { Router } from 'express';
+import { ticketRouter } from './ticket-routes.js';
+import { userRouter } from './user-routes.js';
+
 const router = Router();
 
-import parkRoutes from './parkRoutes.js';
-import historyRoutes from './historyRoutes.js';
-
-router.use('/parks', parkRoutes);
-router.use('/history', historyRoutes);
+router.use('/tickets', ticketRouter);
+router.use('/users', userRouter);
 
 export default router;
