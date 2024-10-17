@@ -2,6 +2,7 @@ import { TicketData } from '../interfaces/TicketData';
 import { ApiMessage } from '../interfaces/ApiMessage';
 import Auth from '../utils/auth';
 
+
 const retrieveTickets = async () => {
   try {
     const response = await fetch(
@@ -14,12 +15,13 @@ const retrieveTickets = async () => {
       }
     );
     const data = await response.json();
+  console.log('Data from retrieveTickets: ', data);
 
     if(!response.ok) {
       throw new Error('invalid API response, check network tab!');
     }
 
-    return data;
+    return data ['tickets'];
   } catch (err) {
     console.log('Error from data retrieval: ', err);
     return [];

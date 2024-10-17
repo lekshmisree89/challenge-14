@@ -7,7 +7,9 @@ import { MouseEventHandler } from 'react';
 interface TicketCardProps {
   ticket: TicketData;
   deleteTicket: (ticketId: number) => Promise<ApiMessage>
+
 }
+
 
 const TicketCard = ({ ticket, deleteTicket }: TicketCardProps) => {
 
