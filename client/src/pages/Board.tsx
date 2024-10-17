@@ -72,7 +72,9 @@ const Board = () => {
             </button>
             <div className='board-display'>
               {boardStates.map((status) => {
-                const filteredTickets = tickets.filter(ticket => ticket.status === status);
+                const filteredTickets = tickets.filter(ticket => ticket.status === status);//
+                 console.log('filteredTickets:', filteredTickets);
+                
                 return (
                   <Swimlane 
                     title={status} 

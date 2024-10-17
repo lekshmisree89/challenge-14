@@ -1,5 +1,6 @@
 import { UserLogin } from "../interfaces/UserLogin";
 
+
 const login = async (userInfo: UserLogin) => {
   try {
     const response = await fetch("/auth/login", {
@@ -11,10 +12,8 @@ const login = async (userInfo: UserLogin) => {
     });
 
     if (!response.ok) {
-      const errorData = await response.json(); // Parse error response as JSON
-      throw new Error(`Error: ${errorData.message}`); // Throw a detailed error message    
+      throw new Error(`HTTP error! Status: ${response.status}`);
     }
-
 
     const data = await response.json();
 
@@ -23,9 +22,10 @@ const login = async (userInfo: UserLogin) => {
     return data;
 
   
-  } catch (err) {
-    console.log('Error from user login: ', err);  // Log any errors that occur during fetch
-    return Promise.reject('Could not fetch user info');  // Return a rejected promise with an error message
+  } catch (error) {
+    console.error("Login failed:", error);
+    
+    throw error; // Rethrow if you want to handle it further up the call stack
   }
 };
 

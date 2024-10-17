@@ -9,7 +9,7 @@ router.use('/auth', authRoutes);
 
 // TODO: Add authentication to the API routes
 
-router.use(authenticateToken);
-router.use('/api', apiRoutes);
+
+router.use('/api', authenticateToken, apiRoutes);
 
 export default router;
